@@ -1,0 +1,60 @@
+<div dir="ltr">
+	<!-- Header Section -->
+  <div>Hello, <?= firstName ?> you have <?= numBadgesExpiring ?> badges expiring soon...</div>
+  <br>
+
+  <!-- Error Section -->
+	<? if (sheetErrors == true) { ?>
+  <div><b><font color=red>There are one or more errors in your sheet! - Check with Cameron for more info</font></b></div>
+  <? } ?>
+  
+  <br>
+
+	<!-- Expired Section -->
+	<div><b><u>Expired:</u></b></div>
+	<!-- Check length of array, if 0 then write 'None', otherwise load values from array -->
+  <? if (expiration00.length == 0) { ?>
+  <div>None</div>
+  <? } else { for(var i = 0; i < expiration00.length; i++) { ?>
+  <div><?= expiration00[i][0] ?> - <?= expiration00[i][1] ?></div>
+  <? } }?>
+	<br>
+	
+	<!-- 30 Day Section -->
+	<div><b><u>Within 30 Days:</u></b></div>
+	<!-- Check length of array, if 0 then write 'None', otherwise load values from array -->
+	<? if (expiration30.length == 0) { ?>
+  <div>None</div>
+  <? } else { for(var i = 0; i < expiration30.length; i++) { ?>
+  <div><?= expiration30[i][0] ?> - <?= expiration30[i][1] ?></div>
+  <? } }?>
+	<br>
+	
+	<!-- 60 Day Section -->
+	<div><b><u>Within 60 Days:</u></b></div>
+	<!-- Check length of array, if 0 then write 'None', otherwise load values from array -->
+	<? if (expiration60.length == 0) { ?>
+  <div>None</div>
+  <? } else { for(var i = 0; i < expiration60.length; i++) { ?>
+  <div><?= expiration60[i][0] ?> - <?= expiration60[i][1] ?></div>
+  <? } }?>
+	<br>
+	
+	<!-- 90 Day Section -->
+	<div><b><u>Within 90 Days:</u></b></div>
+	<!-- Check length of array, if 0 then write 'None', otherwise load values from array -->
+	<? if (expiration90.length == 0) { ?>
+  <div>None</div>
+  <? } else { for(var i = 0; i < expiration90.length; i++) { ?>
+  <div><?= expiration90[i][0] ?> - <?= expiration90[i][1] ?></div>
+  <? } }?>
+	<br>
+
+  <!-- Rows that are unmonitored Section -->
+	<? if (rowUnmonitoredCount > 0) { ?>
+  <br>
+  <div>FYI: There are <?= rowUnmonitoredCount ?> rows not being monitored in your sheet.</div>
+  <br>
+  <? } ?>
+
+</div>

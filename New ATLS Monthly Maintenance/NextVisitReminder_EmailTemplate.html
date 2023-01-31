@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <style>
+      table {
+        border-collapse: collapse;
+        margin: 10px auto 30px .25rem;
+        width: auto;
+        min-width: 40rem;
+        max-width: 100%;
+        white-space: nowrap;
+      }
+        
+      td,
+      th {
+        border: 1px solid #202020;
+        padding: 8px;
+        width: auto;
+      }
+        
+      tr:nth-child(odd) {
+        background-color: #f0f0f0;
+      }
+        
+      tr:hover {
+        background-color: #dddddd;
+      }
+        
+      th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #585858;
+        color: white;
+        white-space: nowrap;
+      }
+      tr td:nth-child(2) {
+        word-wrap: normal;
+        white-space: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="font-size: 1.2rem; margin-bottom: 25px;">
+      Hello Friends, Happy <?= month ?>.
+      <br>
+      <br>
+      Here are the notes for last month's maintenance:
+    </div>
+    <table>
+      <tr><th>Property</th><th>Additional Work Needed</th><th>Last Maintenance By</th></tr>
+      <?!= htmlTableContent ?>
+    </table>
+  </body>
+</html>

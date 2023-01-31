@@ -1,0 +1,131 @@
+<div dir="ltr">
+	<!-- Header Section -->
+  <!-- ================================================================================================= -->
+	<h2 style="font-size:1.5rem; text-decoration: underline; margin-bottom: 1rem">ATLS Maintenance Report for <?= casinoName ?></h2>
+	<div style="margin-top: 1rem;">Performed on <?= maintenanceDate.toLocaleDateString() ?> by <?= whoAreYou ?>.</div>
+	<br>
+  
+
+  <!-- Hardware Status Section -->
+  <!-- ================================================================================================= -->
+	<br>
+  <div style="margin-left: 1rem; font-size: 0.95rem">
+
+  <!-- Overall Hardware Status -->
+	<? if ((serversFaultLights == 'None') && (switchesFaultLights == 'None') && (sanFaultLights == 'None') && (upsWarnings == 'No')) { ?>
+		<div>&#9989; No Hardware Issues Reported</div>
+	<? } else { ?>
+  	<div>&#10060; Hardware Issue Reported:</div>
+    	<div style="margin-left: 2rem;">
+	    
+      <!-- Servers/RackPC/NAS Fault Lights -->
+	    <? if (serversFaultLights != 'None') { ?>
+		    <div>&#8226; Servers - <?= serversFaultLights ?> </div>
+	    <? } ?>
+	    
+      <!-- Switches Fault Lights -->
+	    <? if (switchesFaultLights != 'None') { ?>
+		    <div>&#8226; Switches - <?= switchesFaultLights ?> </div>
+	    <? } ?>
+	    
+      <!-- SAN Fault Lights -->
+	    <? if (sanFaultLights != 'None') { ?>
+		    <div>&#8226; SAN - <?= sanFaultLights ?> </div>
+    	<? } ?>
+	
+      <!-- UPS Warning Lights -->
+	    <? if (upsWarnings != 'No') { ?>
+		    <div>&#8226; UPS - <?= upsWarnings ?> </div>
+	    <? } ?>
+
+      </div>
+  <? } ?>
+	</div>
+
+
+	<!-- OneLink Status Section -->
+	<!-- ================================================================================================= -->
+	<br>
+  <div style="margin-left: 1rem; font-size: 0.95rem">
+  
+  <!-- Overall OneLink Status -->
+	<? if ((onelinkEGMSOnline == 'Yes') && (onelinkOtherErrors == 'No')) { ?>
+		<div>&#9989; No OneLink Issues Reported</div>
+	<? } else { ?>
+    <div>&#10060; OneLink Issue Reported:</div>
+      <div style="margin-left: 2rem;">
+      
+      <!-- OneLink EGMs Online -->
+	    <? if (onelinkEGMSOnline != 'Yes') { ?>
+		    <div>&#8226; <?= onelinkEGMSOnline ?></div>
+	    <? } ?>
+	
+      <!-- OneLink other errors -->
+	    <? if (onelinkOtherErrors != 'No') { ?>
+		    <div> &#8226; <?= onelinkOtherErrors ?> </div>
+	    <? } ?>
+
+      </div>
+  <? } ?>
+  </div>
+  
+
+  <!-- File Status Section -->
+	<!-- ================================================================================================= -->
+  <br>
+  <div style="margin-left: 1rem; font-size: 0.95rem">
+    
+    <!-- DB Log Shrink Status -->
+	  <? if (dbLogsShrunk == 'Yes') { ?>
+		  <div>&#9989; Database Files Shrunk</div>
+	  <? } else { ?>
+  	  <div>&#10060; Database File Shrink Issue: <?= dbLogsShrunk ?> </div>
+    <? } ?>
+        
+    <br>
+
+    <!-- Billing Reports and Offline Report Files -->
+	  <? if (billingReports == 'Done') { ?>
+		  <div>&#9989; Billing & Offline Reports Processed</div>
+	  <? } else { ?>
+  	  <div>&#10060; Billing & Offline Reports Issue: <?= billingReports ?> </div>
+    <? } ?>
+    
+    <br>
+    
+    <!-- Upload Files to WA ATLS Share -->
+	  <? if (uploadToShare == 'Done') { ?>
+		  <div>&#9989; All Files Uploaded to WA ATLS Share</div>
+	  <? } else { ?>
+    	<div>&#10060; WA ATLS Upload Issue: <?= uploadToShare ?> </div>
+    <? } ?>
+  </div>
+  
+
+  <!-- Notes Section -->
+  <!-- ================================================================================================= -->
+  <br>
+
+  <!-- Additional Work Done -->
+	<? if (additionalWorkDone != 'None') { ?>
+		<br>
+    <div><b>Additional Work Done:</b> <?= additionalWorkDone ?> </div>
+	<? } ?>
+	
+  <!-- Additional Work Needed -->
+	<? if (additionalWorkNeeded != 'None') { ?>
+		<br>
+    <div><b>Additional Work Needed:</b> <?= additionalWorkNeeded ?> </div>
+	<? } ?>
+	
+  <!-- Other Notes -->
+	<? if (additionalNotes != 'None') { ?>
+		<br>
+    <div><b>Other Notes:</b> <?= additionalNotes ?> </div>
+	<? } ?>
+
+
+  <!-- Footer Section-->
+  <!-- ================================================================================================= -->
+  <div style="margin: 3.5rem auto"><b>Please see the attached IRIS Report for more information =)</b></div>
+</div>
